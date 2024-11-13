@@ -1,15 +1,21 @@
 on:
+  label:
+    types: [created, deleted]
   workflow_dispatch:
   pull_request:
     branches:
       - main
 
 jobs:
-  pr-comment:
+  run1:
+    strategy:
+      matrix:
+        foo: ['1.0', '2.0', '3.0']
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - run: echo "The version is ${{ matrix.foo }}"
+
+  run2:
+    runs-on: ubuntu-latest
+    steps:
       - run: echo "Hello from a workflow!"
-      - run: gh pr comment ${{ github.event.pull_request.number }} --body "Hello from a workflow!"
-        env:
-          GH_TOKEN: ${{ github.token }}
