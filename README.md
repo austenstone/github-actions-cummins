@@ -1,3 +1,3 @@
 # github-actions-cummins
 
-Let's demo!
+Lets do a demo!
