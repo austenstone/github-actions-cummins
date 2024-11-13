@@ -8,6 +8,7 @@ jobs:
   pr-comment:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - run: echo "Hello from a workflow!"
       - run: gh pr comment ${{ github.event.pull_request.number }} --body "Hello from a workflow!"
         env:
