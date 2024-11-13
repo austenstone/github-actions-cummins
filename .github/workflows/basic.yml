@@ -10,3 +10,5 @@ jobs:
     steps:
       - run: echo "Hello from a workflow!"
       - run: gh pr comment ${{ github.event.pull_request.number }} --body "Hello from a workflow!"
+        env:
+          GH_TOKEN: ${{ github.token }}
